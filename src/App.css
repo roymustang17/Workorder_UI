@@ -58,3 +58,18 @@
   flex: 6;
 }
 
+.main-content {
+  transition: margin-right 0.3s ease;
+}
+
+.sidebar {
+  transition: width 0.3s ease;
+}
+
+.sidebar-open .main-content {
+  margin-right: 33%;
+}
+
+.sidebar-open .sidebar {
+  width: 33%;
+}
