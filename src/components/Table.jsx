@@ -1,35 +1,9 @@
-import "./App.css";
 import React, { useState } from "react";
+import { data, rate, total } from "./data";
+// import '../App.css'
 
 function Table() {
   const [expandedRows, setExpandedRows] = useState([]);
-
-  const data = [
-    { id: 1, col1: "Data 1", col2: "Data 2", col3: "Data 3", col4: "Data 4" },
-    { id: 2, col1: "Data 5", col2: "Data 6", col3: "Data 7", col4: "Data 8" },
-    {
-      id: 3,
-      col1: "Data 9",
-      col2: "Data 10",
-      col3: "Data 11",
-      col4: "Data 12",
-    },
-    {
-      id: 4,
-      col1: "Data 9",
-      col2: "Data 10",
-      col3: "Data 11",
-      col4: "Data 12",
-    },
-    {
-      id: 5,
-      col1: "Data 9",
-      col2: "Data 10",
-      col3: "Data 11",
-      col4: "Data 12",
-    },
-    // Add more data as needed
-  ];
 
   const handleExpand = (id) => {
     setExpandedRows((prevExpandedRows) => {
@@ -43,7 +17,7 @@ function Table() {
 
   const renderNestedTable = () => {
     return (
-      <table className="table table-bordered">
+      <table className="table table-bordered m-0 ">
         <tbody>
           {[1, 2, 3, 4].map((index) => (
             <React.Fragment key={index}>
@@ -51,7 +25,9 @@ function Table() {
                 <td>
                   <input type="checkbox" />
                 </td>
-                <td>Row {index}</td>
+                <td>Activity {index}</td>
+                <td>{rate}</td>
+                <td>{total}</td>
                 <td>
                   <button onClick={() => handleExpand(`${index}-nested`)}>
                     Open
@@ -60,7 +36,7 @@ function Table() {
               </tr>
               {expandedRows.includes(`${index}-nested`) && (
                 <tr>
-                  <td colSpan="3">{renderNestedNestedTable()}</td>
+                  <td colSpan="6" className="p-0">{renderNestedNestedTable()}</td>
                 </tr>
               )}
             </React.Fragment>
@@ -72,14 +48,15 @@ function Table() {
 
   const renderNestedNestedTable = () => {
     return (
-      <table className="table table-bordered">
+      <table className="table table-bordered m-0">
         <tbody>
           {[1, 2, 3].map((index) => (
-            <tr key={index}>
+            <tr key={index} className="bg-black">
               <td>
                 <input type="checkbox" />
               </td>
-              <td>Subrow {index}</td>
+              <td>Work Item {index}</td>
+              <td className="">{total}</td>
             </tr>
           ))}
         </tbody>
@@ -91,15 +68,14 @@ function Table() {
     <div className="container">
       <table className="table table-bordered">
         <thead>
-          <tr className="table-active">
-            <th scope="col">
+          <tr className="flex table-active">
+            <th scope="col" className="flex-1">
               <input type="checkbox" />
             </th>
-            <th scope="col">Packages</th>
-            {/* <th scope="col">{""}</th> */}
-            <th scope="col">Rate</th>
-            <th scope="col">Total</th>
-            <th scope="col">{""}</th>
+            <th scope="col-sm-9" className="flex-6">Packages</th>
+            <th scope="col" className="flex-4">Rate <span style={{ fontWeight: 400, fontSize: '0.75rem', fontStyle: 'italic'}}>(in sqft)</span></th>
+            <th scope="col" className="flex-2">Total</th>
+            <th scope="col" className="flex-1">{""}</th>
           </tr>
         </thead>
         <tbody>
@@ -109,19 +85,21 @@ function Table() {
                 <td>
                   <input type="checkbox" />
                 </td>
-                <td>{row.col1}</td>
-                {/* <td>{}</td> */}
-                <td>{row.col3}</td>
-                <td>{row.col4}</td>
-                <td>
-                  <button onClick={() => handleExpand(row.id)}>
-                    {expandedRows.includes(row.id) ? "Collapse" : "Expand"}
-                  </button>
+                <td>Civil {row.id}</td>
+                <td>{rate}</td>
+                <td>{total}</td>
+                <td className="bg-black p-0">
+                {/* btn btn-bor border-0 bg-transparent */}
+                <button onClick={() => handleExpand(row.id)} className="bg-white m-0">
+                  <span style={{ fontSize: "2rem", color: "Aqua" }}>
+                    {expandedRows.includes(row.id) ? "-" : "+"}
+                  </span>
+                </button>
                 </td>
               </tr>
               {expandedRows.includes(row.id) && (
                 <tr>
-                  <td colSpan="6">{renderNestedTable()}</td>
+                  <td colSpan="6" className="p-0">{renderNestedTable()}</td>
                 </tr>
               )}
             </React.Fragment>
