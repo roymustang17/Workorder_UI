@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
     return(
-        <div className='mx-5'>
+        <div className='mx-0 mx-md-5'>
             <div className='d-flex justify-content-between'>
                 <div className='fw-bold'>Create Workorder</div>
                 <button 
@@ -40,7 +40,7 @@ const Navbar = () => {
                 <button onClick={() => handleButtonClick('screen2')} className="btn border-bottom" style={{width: '200px'}}>Other</button>
             </div>
             
-            <div>{renderScreen()}</div>
+            <div className='container mx-0 mx-md-auto'>{renderScreen()}</div>
         </div>
     );
 }
