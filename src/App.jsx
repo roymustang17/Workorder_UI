@@ -1,16 +1,14 @@
 import React from "react"; 
-import Table from "./components/Table";
 import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
 
 function App() {
-  return(
-    <>
-      <button ></button>
 
+  return(
+    <div className="m-3">
       <Sidebar/>
-      <Table />
-    </>
-  );
-}
+      <Navbar />
+    </div>
+  )}
 
 export default App;

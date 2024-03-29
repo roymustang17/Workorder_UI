@@ -33,7 +33,7 @@ function Sidebar() {
 
     return (
         <>
-            <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Save</button>
+            {/* <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Save</button> */}
 
             <div className="offcanvas offcanvas-end" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                 <div className="offcanvas-header">
@@ -44,7 +44,7 @@ function Sidebar() {
                     <div className="dropdown">
                         <select name="" id="" onChange={handleEntry} onSubmit={handleSubmit}>
                             <option value="Client Name"></option>
-                            <option value="A">A.</option>
+                            <option value="A.">A.</option>
                             <option value="B.">B.</option>
                             <option value="C.">C.</option>
                         </select>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Other = () => {
   return (
-        <div>Hello, World!</div>
+        <div className='m-3 fs-3'>Hello, World!</div>
     )
 }
 

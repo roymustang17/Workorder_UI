@@ -16,18 +16,18 @@ function Table() {
 
   const renderNestedTable = () => {
     return (
-      <table className="table table-bordered m-0 ">
+      <table className="table table-borderless m-0 ">
         <tbody>
           {[1, 2, 3, 4].map((index) => (
             <React.Fragment key={index}>
               <tr>
-                <td>
+                <td className="col text-end" style={{width: '100px'}}>
                   <input type="checkbox" />
                 </td>
                 <td>Activity {index}</td>
-                <td>{rate}</td>
-                <td>{total}</td>
-                <td>
+                <td style={{width: '300px'}}>{rate}</td>
+                <td style={{width: '300px'}}>{total}</td>
+                <td style={{width: '80px'}}>
                   <button onClick={() => handleExpand(`${index}-nested`)}>
                     Open
                   </button>
@@ -47,15 +47,15 @@ function Table() {
 
   const renderNestedNestedTable = () => {
     return (
-      <table className="table table-bordered m-0">
+      <table className="table table-borderless m-0">
         <tbody>
           {[1, 2, 3].map((index) => (
-            <tr key={index} className="bg-black">
-              <td>
+            <tr key={index}>
+              <td className="col text-end" style={{width: '150px'}}>
                 <input type="checkbox" />
               </td>
               <td>Work Item {index}</td>
-              <td className="">{total}</td>
+              <td style={{width: '380px'}}>{total}</td>
             </tr>
           ))}
         </tbody>
@@ -64,32 +64,32 @@ function Table() {
   };
 
   return (
-    <div className="container">
-      <table className="table table-bordered">
+    <div className="container mx-0 px-0">
+      <table className="table table-borderless">
         <thead>
           <tr className="flex table-active">
-            <th scope="col" className="flex-1">
+            <th scope="col" className="text-center">
               <input type="checkbox" />
             </th>
-            <th scope="col-sm-9" className="flex-6">Packages</th>
-            <th scope="col" className="flex-4">Rate <span style={{ fontWeight: 400, fontSize: '0.75rem', fontStyle: 'italic'}}>(in sqft)</span></th>
-            <th scope="col" className="flex-2">Total</th>
-            <th scope="col" className="flex-1">{""}</th>
+            <th scope="col-sm-9">Packages</th>
+            <th scope="col" >Rate <span style={{ fontWeight: 400, fontSize: '0.75rem', fontStyle: 'italic'}}>(in sqft)</span></th>
+            <th scope="col" >Total</th>
+            <th scope="col" >{""}</th>
           </tr>
         </thead>
         <tbody>
           {data.map((row) => (
             <React.Fragment key={row.id}>
               <tr>
-                <td>
+                <td className="col text-center" style={{width: '80px'}}>
                   <input type="checkbox" />
                 </td>
-                <td>Civil {row.id}</td>
-                <td>{rate}</td>
-                <td>{total}</td>
-                <td className="bg-black p-0">
-                {/* btn btn-bor border-0 bg-transparent */}
-                <button onClick={() => handleExpand(row.id)} className="bg-white m-0">
+                <td >Civil {row.id}</td>
+                <td style={{width: '300px'}}>{rate}</td>
+                <td style={{width: '300px'}}>{total}</td>
+                <td className="p-0" style={{width: '80px'}} >
+                {/*  */}
+                <button onClick={() => handleExpand(row.id)} className="btn btn-bor border-0 bg-transparent0">
                   <span style={{ fontSize: "2rem", color: "Aqua" }}>
                     {expandedRows.includes(row.id) ? "-" : "+"}
                   </span>
