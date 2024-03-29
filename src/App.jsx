@@ -6,8 +6,8 @@ function App() {
 
   return(
     <div className="m-3">
-      <Sidebar/>
       <Navbar />
+      <Sidebar/>
     </div>
   )}
 
