@@ -25,7 +25,16 @@ const Navbar = () => {
         <div className='mx-5'>
             <div className='d-flex justify-content-between'>
                 <div>Create Workorder</div>
-                <button className="btn btn-primary border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style= {{backgroundColor: 'aqua', width: '100px'}}>Save</button>
+                <button 
+                    className="btn btn-primary border-0" 
+                    type="button" 
+                    data-bs-toggle="offcanvas" 
+                    data-bs-target="#offcanvasRight" 
+                    aria-controls="offcanvasRight" 
+                    style= {{backgroundColor: 'aqua', width: '100px'}}
+                >
+                    Save
+                </button>
             </div>
             <div className='my-3'>
                 <button onClick={() => handleButtonClick('screen1')} className="btn border-bottom" style={{width: '200px'}}>Overview</button>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { data, rate, total } from "./data";
+import { BsChevronDown } from "react-icons/bs";
 
 function Table() {
   const [expandedRows, setExpandedRows] = useState([]);
@@ -28,8 +29,8 @@ function Table() {
                 <td style={{width: '300px'}}>{rate}</td>
                 <td style={{width: '300px'}}>{total}</td>
                 <td style={{width: '80px'}}>
-                  <button onClick={() => handleExpand(`${index}-nested`)}>
-                    Open
+                  <button className="border-0 bg-transparent" onClick={() => handleExpand(`${index}-nested`)}>
+                    <BsChevronDown />
                   </button>
                 </td>
               </tr>
@@ -89,7 +90,7 @@ function Table() {
                 <td style={{width: '300px'}}>{total}</td>
                 <td className="p-0" style={{width: '80px'}} >
                 {/*  */}
-                <button onClick={() => handleExpand(row.id)} className="btn btn-bor border-0 bg-transparent0">
+                <button onClick={() => handleExpand(row.id)} className="btn btn-bor border-0 bg-transparent">
                   <span style={{ fontSize: "2rem", color: "Aqua" }}>
                     {expandedRows.includes(row.id) ? "-" : "+"}
                   </span>
