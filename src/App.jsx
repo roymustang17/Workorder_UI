@@ -5,10 +5,10 @@ import Sidebar from "./components/Sidebar";
 function App() {
   return(
     <>
-    <Sidebar/>
-    <Table />
+      <button ></button>
 
-    
+      <Sidebar/>
+      <Table />
     </>
   );
 }

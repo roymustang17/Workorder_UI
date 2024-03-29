@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { data, rate, total } from "./data";
-// import '../App.css'
 
 function Table() {
   const [expandedRows, setExpandedRows] = useState([]);
